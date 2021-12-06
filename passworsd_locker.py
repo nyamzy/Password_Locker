@@ -6,7 +6,7 @@ class User:
 
     def __init__(self, first_name, last_name, username, email, password):
         '''
-        init method helps to define the properties for our objects
+        init method helps to define the properties for our user objects
         '''
         self.first_name = first_name
         self.last_name = last_name
@@ -59,4 +59,12 @@ class Credentials:
     '''
     Class that generates new instances of credentials
     '''
-    
+    def __init__(self, username, application, password):
+        '''
+        Initialization method that helps define properties of our credential objects
+        '''
+        self.username = username
+        self.application = application
+        self.password = password
+
+        
