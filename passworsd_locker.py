@@ -26,5 +26,14 @@ class User:
         Method that deletes a saved user from the users list
         '''
         User.users.remove(self)
-        
 
+    @classmethod
+    def find_by_username(cls,username):
+        '''
+        Method that takes in a username and returns a user that matches that username
+        '''
+        for user in cls.users:
+            if user.username == username:
+                return user
+
+    
