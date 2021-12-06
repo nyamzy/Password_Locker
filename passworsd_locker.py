@@ -53,3 +53,10 @@ class User:
         Method that returns the users list
         '''
         return cls.users
+
+
+class Credentials:
+    '''
+    Class that generates new instances of credentials
+    '''
+    
