@@ -66,6 +66,24 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         found_user = User.find_by_username('user')
         self.assertEqual(found_user.username, test_user.username)
+
+    def test_user_exists(self):
+        '''
+        Test to check if a user exists
+        '''
+        self.new_user.save_user()
+        test_user = User('Test', 'User', "user", 'test@gmail.com', '1234')
+        test_user.save_user()
+        user_exists = User.user_exist('user')
+
+        self.assertTrue(user_exists)
+
+
+    def test_display_all_users(self):
+        '''
+        Test that returns a list of all contacts saved
+        '''
+        self.assertEqual(User.display_users(),User.users)
         
 if __name__ == '__main__':
     unittest.main()
