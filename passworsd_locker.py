@@ -54,13 +54,14 @@ class User:
         '''
         return cls.users
 
+    
 
 class Credentials:
     '''
     Class that generates new instances of credentials
     '''
 
-    accounts = []
+    accounts = [] #Empty list that will store credentials
 
 
     def __init__(self, username, application, password):
@@ -71,4 +72,11 @@ class Credentials:
         self.application = application
         self.password = password
 
+    def save_credential(self):
+        '''
+        Method that saves the credentials to the accounts list
+        '''
+        Credentials.accounts.append(self)
+
     
+
