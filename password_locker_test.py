@@ -139,5 +139,13 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.delete_credential() #Delete credential method
         self.assertEqual(len(Credentials.accounts),1)
 
+    def test_display_credentials(self):
+        '''
+        Test to check if we can display the credential accounts
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.accounts)
+
+        
+
 if __name__ == '__main__':
     unittest.main()
