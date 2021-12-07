@@ -62,7 +62,7 @@ class Credentials:
 
     accounts = []
 
-    
+
     def __init__(self, username, application, password):
         '''
         Initialization method that helps define properties of our credential objects
@@ -71,4 +71,4 @@ class Credentials:
         self.application = application
         self.password = password
 
-        
+    
