@@ -1,5 +1,4 @@
 import unittest
-
 from passworsd_locker import User,Credentials
 
 class TestUser(unittest.TestCase):
@@ -85,8 +84,8 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(User.display_users(),User.users)
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 
 
@@ -112,6 +111,15 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertEqual(self.new_credential.username, "nyamzy")
         self.assertEqual(self.new_credential.application, 'twitter')
-        self.assertEqual(self.new_credential.password, '5874')
+        self.assertEqual(self.new_credential.password, '1234')
 
-        
+    def test_save_credential(self):
+        '''
+        Test to check if the credential is saved in the accounts list
+        '''
+        self.new_credential.save_credential() #Save credentials method
+        self.assertEqual(len(Credentials.accounts),1)
+
+
+if __name__ == '__main__':
+    unittest.main()
