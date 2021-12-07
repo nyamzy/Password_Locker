@@ -84,8 +84,6 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(User.display_users(),User.users)
 
-# if __name__ == '__main__':
-#     unittest.main()
 
 
 
@@ -120,6 +118,17 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credential() #Save credentials method
         self.assertEqual(len(Credentials.accounts),1)
 
+    def test_save_multiple_credentials(self):
+        '''
+        Test to check if we can save multiple credentials
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials('test', 'instagram', 'testy123')
+        test_credential.save_credential()
+
+        self.assertEqual(len(Credentials.accounts),2)
+    
+    
 
 if __name__ == '__main__':
     unittest.main()
