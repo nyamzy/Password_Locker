@@ -1,10 +1,10 @@
 import unittest
 
-from passworsd_locker import User
+from passworsd_locker import User,Credentials
 
 class TestUser(unittest.TestCase):
     '''
-    Subclass for testing the behavious of the user class behaviours
+    Subclass for testing the user class behaviours
     '''
 
     def setUp(self):
@@ -84,6 +84,20 @@ class TestUser(unittest.TestCase):
         Test that returns a list of all contacts saved
         '''
         self.assertEqual(User.display_users(),User.users)
-        
+
 if __name__ == '__main__':
     unittest.main()
+
+
+
+class TestCredentials(unittest.TestCase):
+    '''
+    Test subclass for testing the behaviours of the credentials class
+    '''
+    def setUp(self):
+        '''
+        Set up method that runs before each test case
+        '''
+        self.new_credential = Credentials('nyamzy', 'twitter', '1234')
+
+    
