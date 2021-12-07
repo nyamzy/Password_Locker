@@ -145,6 +145,16 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertEqual(Credentials.display_credentials(),Credentials.accounts)
 
+    def test_credential_exists(self):
+        '''
+        Test to check if a credential exists by returning a boolean
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials('testy', 'instagram', 'testing213')
+        test_credential.save_credential()
+
+        credential_exists = Credentials.credential_exist('testy')
+        self.assertTrue(credential_exists)
         
 
 if __name__ == '__main__':
