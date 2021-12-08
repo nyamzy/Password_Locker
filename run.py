@@ -73,3 +73,86 @@ def check_existing_credentials(username):
     return Credentials.credential_exist(username)
 
 
+#Main function
+def main():
+    print('Hello. Welcome to your password manager app. Kindly let me know your name.')
+    user_name = input()
+
+    print(f'Hi {user_name}! What would you like to do today?')
+    print('\n')
+
+    while True:
+        print('Use the following numbers: 1 -  Create new user account, 2 - Display user accounts, 3 - Find account, 4 - Delete account, 5 - Exit')
+        number = input()
+
+        if number == '1':
+            print('New User Account Creation')
+            print('-'*10)
+
+            print('First name ...')
+            f_name = input()
+
+            print('Last name ...')
+            l_name = input()
+
+            print('Username ...')
+            u_name = input()
+
+            print('Email address ...')
+            e_address = input()
+
+            print('Password ...')
+            password = input()
+
+            save_users(create_user(f_name, l_name, u_name, e_address, password)) #Create and save new user details
+            print('\n')
+            print(f'New user {u_name} created')
+
+            print('\n')
+
+        elif number == '2':
+            if display_users():
+                print('User Accounts:')
+                print('\n')
+
+                for user in display_users():
+                    print(f'{user.first_name} {user.last_name} {user.user_name} {user.email}')
+                    print('\n')
+
+            else:
+                print('\n')
+                print('Please create an account')
+        
+        elif number == '3':
+            print('Enter the username you want to search for:')
+            search_username = input()
+
+            if check_existing_users(search_username):
+                search_user = find_user(search_username)
+                print(f'{search_user.first_name} {search_user.last_name}')
+                print('-'*10)
+                print(f'Username...{search_user.user_name}')
+                print(f'Email address...{search_user.email}')
+
+            else:
+                print('That user does not exist.')
+
+        elif number == '4':
+            print('Please enter the username of the account you want to delete:')
+            delete_user = input()
+
+            if check_existing_users(delete_user):
+                deleted_user = del_user(delete_user)
+                print(f'{deleted_user.user_name} has been deleted')
+            else:
+                print('The account does not exist')
+
+        elif number == '5':
+            print('Bye. Come again soon')
+
+        else:
+            print('Please enter the correct number')
+
+if __name__ == '__main__':
+    main()
+    
