@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from passworsd_locker import User, Credentials
 
+#User functions
 def create_user(fname, lname, uname, email, password):
     '''
     Function that creates a new user
@@ -39,5 +40,36 @@ def check_existing_users(username):
     return User.user_exist(username)
 
 
+#Credentials functions
+def create_credential(uname, application, password):
+    '''
+    Function that creates a new credential
+    '''
+    new_credential = Credentials(uname, application, password)
+    return new_credential
+
+def save_credentials(credential):
+    '''
+    Function that saves a new credential
+    '''
+    credential.save_credential()
+
+def del_credential(credential):
+    '''
+    Function that deletes a credential account
+    '''
+    credential.delete_credential()
+
+def display_credentials():
+    '''
+    Function that returns all the saved credentials
+    '''
+    return Credentials.display_credentials()
+
+def check_existing_credentials(username):
+    '''
+    Function that checks if a credential exists
+    '''
+    return Credentials.credential_exist(username)
 
 
